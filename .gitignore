@@ -29,4 +29,5 @@ Thumbs.db
 /x64/
 *Debug/
 *Release/
-winver.exe
+cpuburner.exe
+cpu_burner.exe
