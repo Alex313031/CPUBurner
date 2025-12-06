@@ -186,12 +186,6 @@ void OnStartButtonClick(HWND hWnd) {
     GetWindowText(hEdit, buffer, dwSize + 1);
     std::wcout << L"hEdit content = " << buffer << std::endl;
     threads_to_start = std::stoi(buffer);
-
-    // Display the text in a MessageBox
-    //MessageBoxW(hWnd, buffer, L"Entered Text", MB_OK);
-
-    // Clean up
-    delete[] buffer;
   } else {
     MessageBoxW(hWnd, L"No text entered!", L"Error", MB_OK | MB_ICONERROR);
   }
