@@ -3,6 +3,8 @@
 
 #include "framework.h"
 
+static std::atomic<bool> running(true); // Flag to control the thread execution
+
 extern long long stress_prime_result;
 
 namespace comp {
@@ -18,8 +20,6 @@ namespace comp {
 void start_cpu_stress(int num_threads);
 
 void stop_cpu_stress();
-
-extern bool _run_state;
 
 void set_run_state(bool on);
 

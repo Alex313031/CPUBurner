@@ -23,8 +23,8 @@
 #define IDC_BUTTON2   			        302
 
 // Static values
-#define CW_MAINWIDTH             400
-#define CW_MAINHEIGHT            200
+#define CW_MAINWIDTH                400
+#define CW_MAINHEIGHT               200
 
 // For resources to be loaded without an ID from the system.
 #ifndef IDC_STATIC

@@ -23,7 +23,7 @@
 
 // Embed manifest for common controls and DPI support
 #ifdef __MINGW32__
-//APP_MANIFEST RT_MANIFEST "cpu_burner.manifest"
+APP_MANIFEST RT_MANIFEST "cpu_burner.manifest"
 #endif // __MINGW32__
 
 // Application Icons

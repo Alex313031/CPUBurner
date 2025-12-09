@@ -73,7 +73,7 @@ ATOM RegisterWndClass(HINSTANCE hInstance) {
   wcex.hInstance      = hInstance; // This instance
   wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_CPUBURNER)); // Load our main app icon
   wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW); // Choose default cursor style to show
-  wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1); // Choose window client area background color
+  wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW); // Choose window client area background color
   wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_CPUBURNER); // Attach menu to window
   wcex.lpszClassName  = szWindowClass; // Use our unique window class name
   wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL)); // Load titlebar icon

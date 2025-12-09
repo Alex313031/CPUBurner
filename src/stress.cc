@@ -1,9 +1,5 @@
 #include "stress.h"
 
-std::atomic<bool> running(true); // Flag to control the thread execution
-
-bool _run_state = false;
-
 long long stress_prime_result;
 
 // A CPU-intensive function that performs a heavy calculation
@@ -55,7 +51,6 @@ void stop_cpu_stress() {
   static const wchar_t* buffer = L"Stopping threads...";
   std::wcout << buffer << std::endl;
   running = false;
-  _run_state = false;
 }
 
 void set_run_state(bool on) {
@@ -63,7 +58,7 @@ void set_run_state(bool on) {
   if (!is_on) {
     stop_cpu_stress();
   } else {
-    _run_state = is_on;
+    running = true;
   }
 }
 
@@ -78,8 +73,7 @@ bool test_stress(const int num_threads, unsigned long num_ms) {
              << num_threads << L" threads for " 
              << num_sec << sec_str << std::endl;
 
-  std::thread start_stress(launch_stressors, num_threads, num_ms);
-  start_stress.detach();
+  launch_stressors(num_threads, num_ms);
 
   std::wcout << __FUNC__ << L" completed." << std::endl;
 
@@ -97,9 +91,9 @@ long long launch_stressors(const int num_threads, unsigned long num_ms) {
   std::thread stress_thread(start_cpu_stress, num_threads);
 
   // Let it run for a while and then stop it
-  std::this_thread::sleep_for(stress_time);  // Stress for 1 seconds
+  //std::this_thread::sleep_for(stress_time);  // Stress for 1 seconds
 
-  set_run_state(false);
-  stress_thread.join(); // Make sure to join the stress thread before exiting
+  //set_run_state(false);
+  stress_thread.detach(); // Make sure to join the stress thread before exiting
   return stress_prime_result;
 }
